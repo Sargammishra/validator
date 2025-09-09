@@ -1,0 +1,130 @@
+{
+  "postProfile": {
+    "param": [
+      {
+        "name": "ftid",
+        "displayName": "Fund Transfer ID",
+        "displayNameAR": "معرف تحويل الأموال",
+        "nullable": false,
+        "validationType": "NUMERIC"
+      }
+    ]
+  },
+  "sub_payee_acc_adcb": {
+    "validateIf": "regId|isDataSubmit=Y",
+    "param": [
+      {
+        "name": "ftId",
+        "displayName": "Fund Transfer ID",
+        "displayNameAR": "معرف تحويل الأموال",
+        "nullable": false,
+        "validationType": "NUMERIC"
+      },
+      {
+        "name": "benefId",
+        "displayName": "Beneficiary ID",
+        "displayNameAR": "معرف المستفيد",
+        "nullable": true,
+        "validationType": "NUMERIC_NEG",
+        "mandatoryIf": "benefAction-R,0",
+        "errorMsgCode": "252"
+      },
+      {
+        "name": "ftTypeKey",
+        "displayName": "Fund Transfer Type Key",
+        "displayNameAR": "مفتاح نوع التحويل",
+        "nullable": true,
+        "validationType": "ALPHANUM_HYPHN"
+      },
+      {
+        "name": "benefAction",
+        "displayName": "Benef Action",
+        "displayNameAR": "إجراء المستفيد",
+        "nullable": false,
+        "validationType": "ALPHA",
+        "valuesIn": "A,R,N,D"
+      },
+      {
+        "name": "payeeName",
+        "displayName": "Payee Name",
+        "displayNameAR": "اسم المستفيد",
+        "nullable": true,
+        "validationType": "BENEF_FLEXI",
+        "mandatoryIf": "benefAction-A,N",
+        "errorMsgCode": "252"
+      },
+      {
+        "name": "payeeAddr1",
+        "displayName": "Payee Address1",
+        "displayNameAR": "عنوان المستفيد 1",
+        "nullable": true,
+        "validationType": "BENEF_FLEXI",
+        "errorMsgCode": "252"
+      },
+      {
+        "name": "payeeAddr2",
+        "displayName": "Payee Address2",
+        "displayNameAR": "عنوان المستفيد 2",
+        "nullable": true,
+        "validationType": "BENEF_FLEXI",
+        "errorMsgCode": "252"
+      },
+      {
+        "name": "payeeAddr3",
+        "displayName": "Payee Address3",
+        "displayNameAR": "عنوان المستفيد 3",
+        "nullable": true,
+        "validationType": "BENEF_FLEXI",
+        "errorMsgCode": "252"
+      },
+      {
+        "name": "payeeAcc",
+        "displayName": "Payee Account",
+        "displayNameAR": "حساب المستفيد",
+        "nullable": true,
+        "validationType": "ALPHANUM",
+        "mandatoryIf": "benefAction-A,N",
+        "errorMsgCode": "253"
+      },
+      {
+        "name": "payeeShrtName",
+        "displayName": "Payee Short Name",
+        "displayNameAR": "الاسم المختصر للمستفيد",
+        "nullable": true,
+        "length": 30,
+        "validationType": "NICKNAME_FLEXI",
+        "mandatoryIf": "benefAction-A",
+        "errorMsgCode": "252"
+      }
+    ]
+  },
+  "dummy-api-request": {
+    "param": [
+      {
+        "name": "firstname",
+        "displayName": "First Name",
+        "nullable": "false",
+        "validationType": "ALPHA"
+      },
+      {
+        "name": "lastname",
+        "displayName": "Last Name",
+        "nullable": "false",
+        "validationType": "ALPHA"
+      },
+      {
+        "name": "mobilenumber",
+        "displayName": "Mobile Number",
+        "nullable": "false",
+        "validationType": "NUMERIC",
+        "length": "10"
+      },
+      {
+        "name": "email",
+        "displayName": "Email",
+        "nullable": "false",
+        "validationType": "EMAIL"
+      }
+    ]
+  }
+}
