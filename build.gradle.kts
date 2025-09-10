@@ -1,11 +1,24 @@
 plugins {
     java
     id("io.quarkus") version "3.26.1"
+    id("maven-publish")
 }
 
 repositories {
     mavenCentral()
     mavenLocal()
+}
+
+publishing {
+    // ./gradlew publishToMavenLocal
+    publications {
+        create<MavenPublication>("mavenJava") {
+            artifact(tasks["jar"]) // fallback to jar task if java component is unavailable
+            groupId = "com.adcb.ms"
+            artifactId = "validator"
+            version = "1.0.0-SNAPSHOT"
+        }
+    }
 }
 
 val quarkusPlatformGroupId: String by project
